@@ -16,3 +16,7 @@ fi
 cmake --build build --target install
 cd build
 ctest
+wget https://raw.githubusercontent.com/adarmalik/gtest2html/master/gtest2html.xslt
+for i in $(find build/ -name "*-tests.xml"); do
+  xsltproc gtest2html.xslt $i > ${i%%.*}.html
+done

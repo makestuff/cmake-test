@@ -36,5 +36,5 @@ jobs:
         if: always()
         with:
           name: test-results
-          path: build/foo/tests/tests.xml
+          path: 'build/**/*-tests.html'
           if-no-files-found: error # 'warn' or 'ignore' are also available

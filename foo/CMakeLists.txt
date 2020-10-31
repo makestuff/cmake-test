@@ -2,7 +2,7 @@ project(foo)
 
 # Create a shared library
 file(GLOB CPP_SOURCES src/*.cpp)
-add_library(${PROJECT_NAME} SHARED ${CPP_SOURCES})
+add_library(${PROJECT_NAME} STATIC ${CPP_SOURCES})
 
 # Ensure clients can find the includes
 target_include_directories(${PROJECT_NAME}
@@ -17,7 +17,7 @@ target_include_directories(${PROJECT_NAME}
 file(GLOB CPP_HEADERS include/${PROJECT_NAME}/*.h)
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER ${CPP_HEADERS})
 install(TARGETS ${PROJECT_NAME}
-  LIBRARY DESTINATION bin
+  ARCHIVE DESTINATION bin
   PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
 )
 

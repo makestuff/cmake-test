@@ -40,5 +40,6 @@ jobs:
 
       # Do the build
       - name: build
+        shell: cmd
         run: |
-          echo Hello from Windows
+	  call .\build.cmd

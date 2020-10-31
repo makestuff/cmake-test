@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 project(cmake-test)
+include(CTest)
 
 # Turn warning level up, and use C++17
 if(MSVC)

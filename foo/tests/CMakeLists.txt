@@ -4,3 +4,8 @@ add_executable(tests ${CPP_SOURCES})
 
 # Link with GoogleTest and the foo library itself
 target_link_libraries(tests PRIVATE foo gtest gmock)
+
+add_test(
+  NAME tests
+  COMMAND tests --gtest_output=xml:tests.xml
+)

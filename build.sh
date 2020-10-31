@@ -14,3 +14,5 @@ if [ ! -e build ]; then
   ln -s build/compile_commands.json compile_commands.json
 fi
 cmake --build build --target install
+cd build
+ctest

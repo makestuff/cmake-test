@@ -31,13 +31,8 @@ jobs:
           ./build.sh
 
       # Publish test results
-      - name: publish-report
-        uses: EnricoMi/publish-unit-test-result-action@v1.3
-        if: always()
+      - name: Archive test report
+        uses: actions/upload-artifact@v2
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          check_name: publish-report
-          hide_comments: all but latest
-          files: build/foo/tests/tests.xml
-          report_individual_runs: true
-          deduplicate_classes_by_file_name: false
+          name: test-results
+          path: build/foo/tests/tests.xml

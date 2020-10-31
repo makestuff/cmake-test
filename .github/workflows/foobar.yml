@@ -42,4 +42,4 @@ jobs:
       - name: build
         shell: cmd
         run: |
-	  call .\build.cmd
+          call .\build.cmd

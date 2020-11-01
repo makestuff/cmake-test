@@ -1,6 +1,6 @@
 cmake-test
 ==========
-![Status](/makestuff/cmake-test/workflows/CI/badge.svg)
+![Status](https://github.com/makestuff/cmake-test/workflows/CI/badge.svg)
 
 This is meant to be a minimal project with CMake build and GoogleTest tests,
 which builds in CI on GitHub on Linux and Windows. The GoogleTest repo is just a

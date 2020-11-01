@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIG=Release
+CONFIG=Debug
 if [ $# -eq 1 ]; then
   CONFIG=$1
 fi

@@ -1,6 +1,6 @@
 @echo off
 setlocal
-set CONFIG=Release
+set CONFIG=Debug
 if not "%1" == "" (
   set CONFIG=%1
 )

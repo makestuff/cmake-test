@@ -1,9 +1,11 @@
-#ifndef MUL_H
-#define MUL_H
+#ifndef FOO_MUL_H
+#define FOO_MUL_H
+
+#include "dllexport.h"
 
 namespace foo
 {
-  int mul(int x, int y);
+  FOO_EXPORT int mul(int x, int y);
 }
 
 #endif

@@ -1,4 +1,10 @@
 #!/bin/sh
+
+CONFIG=Release
+if [ $# -eq 1 ]; then
+  CONFIG=$1
+fi
+
 if [ ! -e build ]; then
   mkdir build
   cd build
@@ -13,4 +19,4 @@ if [ ! -e build ]; then
   rm -f compile_commands.json
   ln -s build/compile_commands.json compile_commands.json
 fi
-cmake --build build --config Debug --target install
+cmake --build build --config ${CONFIG} --target install

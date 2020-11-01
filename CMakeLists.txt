@@ -22,6 +22,6 @@ if(BUILD_TESTING)
   add_subdirectory("googletest/googlemock")
 endif()
 
-# Build subdirectories
-add_subdirectory("foo")
+# Build components
+add_subdirectory("libfoo")
 add_subdirectory("app")

@@ -1,5 +1,10 @@
 @echo off
 setlocal
+set CONFIG=Release
+if not "%1" == "" (
+  set CONFIG=%1
+)
+
 if not exist build (
   md build
   cd build
@@ -12,5 +17,5 @@ if not exist build (
     ..
   cd ..
 )
-cmake --build build --config Debug --target install
+cmake --build build --config %CONFIG% --target install
 endlocal

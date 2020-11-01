@@ -18,17 +18,16 @@ jobs:
       # Do the build
       - name: build
         run: |
-          #sudo apt-get install xsltproc
           ./build.sh
 
       # Publish test results
-      #- name: Archive test report
-      #  uses: actions/upload-artifact@v2
-      #  if: always()
-      #  with:
-      #    name: test-results
-      #    path: 'build/**/*-tests.html'
-      #    if-no-files-found: error # 'warn' or 'ignore' are also available
+      - name: archive-test-reports
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: linux-test-results
+          path: 'build/test-results'
+          if-no-files-found: error
 
   build-windows:
     runs-on: windows-2019
@@ -43,3 +42,12 @@ jobs:
         shell: cmd
         run: |
           call .\build.cmd
+
+      # Publish test results
+      - name: archive-test-reports
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: windows-test-results
+          path: 'build/test-results'
+          if-no-files-found: error

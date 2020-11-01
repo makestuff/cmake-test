@@ -8,5 +8,5 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE foo gtest gmock)
 # Add this test-driver
 add_test(
   NAME ${PROJECT_NAME}-tests
-  COMMAND ${PROJECT_NAME}-tests --gtest_output=xml:${PROJECT_NAME}-tests.xml
+  COMMAND ${PROJECT_NAME}-tests --gtest_output=xml:${CMAKE_BINARY_DIR}/test-results/${PROJECT_NAME}.xml
 )

@@ -3,7 +3,6 @@ project(foo)
 # Create a shared library
 file(GLOB CPP_SOURCES src/*.cpp)
 add_library(${PROJECT_NAME} SHARED ${CPP_SOURCES})
-target_compile_definitions(${PROJECT_NAME} PRIVATE FOO_BUILD)
 
 # Ensure clients can find the includes
 target_include_directories(${PROJECT_NAME}
@@ -18,6 +17,7 @@ target_include_directories(${PROJECT_NAME}
 file(GLOB CPP_HEADERS include/${PROJECT_NAME}/*.h)
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${CPP_HEADERS}")
 install(TARGETS ${PROJECT_NAME}
+  ARCHIVE DESTINATION bin
   LIBRARY DESTINATION bin
   PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
 )

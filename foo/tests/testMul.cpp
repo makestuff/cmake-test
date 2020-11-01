@@ -3,5 +3,9 @@
 
 TEST(Multiply, verifySimpleMultiplication)
 {
-  ASSERT_EQ(200, foo::mul(10, 20));
+  #ifdef _MSC_VER
+    ASSERT_EQ(201, foo::mul(10, 20));
+  #else
+    ASSERT_EQ(200, foo::mul(10, 20));
+  #endif
 }

@@ -10,62 +10,27 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the repo
       - uses: actions/checkout@v2
         with:
           submodules: 'recursive'
 
-      # Do the build
-      - name: build
-        run: |
-          ./build.sh
+      - name: Build
+        run: ./build.sh
 
-      # Publish test results
-      - name: archive-test-reports
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: linux-test-results
-          path: 'build/test-results'
-          if-no-files-found: error
-
-      # Publish installed artifacts
-      - name: archive-artifacts
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: linux-install
-          path: 'install'
-          if-no-files-found: error
+      - name: Test
+        run: cd build && ctest -C Debug --verbose
 
   build-windows:
     runs-on: windows-2019
     steps:
-      # Checkout the repo
       - uses: actions/checkout@v2
         with:
           submodules: 'recursive'
 
-      # Do the build
-      - name: build
+      - name: Build
         shell: cmd
-        run: |
-          call .\build.cmd
+        run: .\build.cmd
 
-      # Publish test results
-      - name: archive-test-reports
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: windows-test-results
-          path: 'build/test-results'
-          if-no-files-found: error
-
-      # Publish installed artifacts
-      - name: archive-artifacts
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: windows-install
-          path: 'install'
-          if-no-files-found: error
+      - name: Test
+        shell: cmd
+        run: cd build && ctest -C Debug --verbose

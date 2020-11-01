@@ -13,6 +13,4 @@ if not exist build (
   cd ..
 )
 cmake --build build --config Debug --target install
-cd build
-ctest -C Debug --verbose
 endlocal

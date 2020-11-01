@@ -29,6 +29,15 @@ jobs:
           path: 'build/test-results'
           if-no-files-found: error
 
+      # Publish installed artifacts
+      - name: archive-artifacts
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: linux-install
+          path: 'install'
+          if-no-files-found: error
+
   build-windows:
     runs-on: windows-2019
     steps:
@@ -50,4 +59,13 @@ jobs:
         with:
           name: windows-test-results
           path: 'build/test-results'
+          if-no-files-found: error
+
+      # Publish installed artifacts
+      - name: archive-artifacts
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: windows-install
+          path: 'install'
           if-no-files-found: error

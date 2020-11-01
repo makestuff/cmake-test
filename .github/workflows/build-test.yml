@@ -15,10 +15,10 @@ jobs:
           submodules: 'recursive'
 
       - name: Build
-        run: ./build.sh
+        run: ./build.sh Release
 
       - name: Test
-        run: cd build && ctest -C Debug --verbose
+        run: cd build && ctest -C Release --verbose
 
   build-windows:
     runs-on: windows-2019
@@ -29,8 +29,8 @@ jobs:
 
       - name: Build
         shell: cmd
-        run: .\build.cmd
+        run: .\build.cmd Release
 
       - name: Test
         shell: cmd
-        run: cd build && ctest -C Debug --verbose
+        run: cd build && ctest -C Release --verbose

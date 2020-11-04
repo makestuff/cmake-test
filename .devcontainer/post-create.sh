@@ -29,4 +29,5 @@ diff -r -U1 old/GTestWrapper.js out/GTestWrapper.js
 +		debugConfig.arguments.pop();
              }
 EOF
+cd -
 touch READY

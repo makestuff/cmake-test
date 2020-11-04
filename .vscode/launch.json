@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "app",
+            "type": "gdb",
+            "request": "launch",
+            "target": "${workspaceFolder}/build/bin/app",
+            "arguments": "",
+            "cwd": "${workspaceFolder}",
+            "valuesFormatting": "parseText",
+            "gdbpath": "/usr/bin/gdb",
+            "debugger_args": ["-data-directory", "/usr/share/gdb"],
+            "env": {"PYTHONPATH": "/usr/share/gdb/python"}
+        },
+        {
+            "name": "foo-tests",
+            "type": "gdb",
+            "request": "launch",
+            "target": "${workspaceFolder}/build/bin/foo-tests",
+            "arguments": "",
+            "cwd": "${workspaceFolder}",
+            "valuesFormatting": "parseText",
+            "gdbpath": "/usr/bin/gdb",
+            "debugger_args": ["-data-directory", "/usr/share/gdb"],
+            "env": {"PYTHONPATH": "/usr/share/gdb/python"}
+        }
+    ]
+}

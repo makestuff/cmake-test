@@ -1,0 +1,4 @@
+{
+    "gtest-adapter.debugConfig": "foo-tests",
+    "gtest-adapter.supportLocation": true
+}

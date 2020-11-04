@@ -3,5 +3,5 @@
 
 TEST(Multiply, verifySimpleMultiplication)
 {
-   ASSERT_EQ(200, foo::mul(10, 20));
+  ASSERT_EQ(200, foo::mul(10, 20));
 }

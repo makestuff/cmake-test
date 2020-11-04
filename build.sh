@@ -17,7 +17,5 @@ if [ ! -e build ]; then
     -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
     ..
   cd ..
-  rm -f compile_commands.json
-  ln -s build/compile_commands.json compile_commands.json
 fi
 cmake --build build --target install

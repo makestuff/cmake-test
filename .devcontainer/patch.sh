@@ -1,5 +1,5 @@
 #!/bin/sh
-~/.vscode-remote/extensions/davidschuldenfrei.gtest-adapter-1.8.3
+cd ~/.vscode-remote/extensions/davidschuldenfrei.gtest-adapter-1.8.3
 patch -p0 <<EOF
 diff -r -U1 old/ConfigUtils.js out/ConfigUtils.js
 --- out/ConfigUtils.js	2019-04-03 10:27:04.000000000 +0100

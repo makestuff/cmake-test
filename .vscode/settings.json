@@ -1,4 +1,10 @@
 {
     "gtest-adapter.debugConfig": "foo-tests",
-    "gtest-adapter.supportLocation": true
+    "gtest-adapter.supportLocation": true,
+    "clangd.path": "/usr/bin/clangd-11",
+    "clangd.arguments": [
+        "--background-index",
+        "--compile-commands-dir=.",
+        "-j=32"
+    ]
 }

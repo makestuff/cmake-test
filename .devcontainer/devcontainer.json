@@ -14,7 +14,9 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"llvm-vs-code-extensions.vscode-clangd"
+	    "llvm-vs-code-extensions.vscode-clangd",
+	    "DavidSchuldenfrei.gtest-adapter-1.8.3",
+	    "webfreak.debug-0.25.0"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

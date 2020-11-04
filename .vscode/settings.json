@@ -4,7 +4,7 @@
     "clangd.path": "/usr/bin/clangd-11",
     "clangd.arguments": [
         "--background-index",
-        "--compile-commands-dir=.",
+        "--compile-commands-dir=build",
         "-j=32"
     ]
 }

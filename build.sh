@@ -9,6 +9,7 @@ if [ ! -e build ]; then
   mkdir build
   cd build
   cmake \
+    -DCMAKE_BUILD_TYPE=${CONFIG} \
     -DBUILD_TESTING=1 \
     -DCMAKE_VERBOSE_MAKEFILE=0 \
     -DCMAKE_INSTALL_PREFIX=../install \
@@ -19,4 +20,4 @@ if [ ! -e build ]; then
   rm -f compile_commands.json
   ln -s build/compile_commands.json compile_commands.json
 fi
-cmake --build build --config ${CONFIG} --target install
+cmake --build build --target install

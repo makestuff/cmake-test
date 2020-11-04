@@ -1,5 +1,6 @@
 #!/bin/sh
 git submodule update --init
+./build.sh
 cd ~/.vscode-remote/extensions/davidschuldenfrei.gtest-adapter-1.8.3
 patch -p0 <<EOF
 diff -r -U1 old/ConfigUtils.js out/ConfigUtils.js

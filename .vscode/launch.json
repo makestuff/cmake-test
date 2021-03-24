@@ -6,27 +6,12 @@
     "configurations": [
         {
             "name": "app",
-            "type": "gdb",
+            "type": "cppdbg",
             "request": "launch",
-            "target": "${workspaceFolder}/build/bin/app",
-            "arguments": "",
+            "program": "${workspaceFolder}/build/bin/app",
+            "args": [],
             "cwd": "${workspaceFolder}",
-            "valuesFormatting": "parseText",
-            "gdbpath": "/usr/bin/gdb",
-            "debugger_args": ["-data-directory", "/usr/share/gdb"],
-            "env": {"PYTHONPATH": "/usr/share/gdb/python"}
-        },
-        {
-            "name": "foo-tests",
-            "type": "gdb",
-            "request": "launch",
-            "target": "${workspaceFolder}/build/bin/foo-tests",
-            "arguments": "",
-            "cwd": "${workspaceFolder}",
-            "valuesFormatting": "parseText",
-            "gdbpath": "/usr/bin/gdb",
-            "debugger_args": ["-data-directory", "/usr/share/gdb"],
-            "env": {"PYTHONPATH": "/usr/share/gdb/python"}
+            "setupCommands": [{"text": "-enable-pretty-printing"}]
         }
     ]
 }

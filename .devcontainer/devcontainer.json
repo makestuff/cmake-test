@@ -1,30 +1,57 @@
 {
-	"name": "C++",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick an Debian / Ubuntu OS version: debian-10, debian-9, ubuntu-20.04, ubuntu-18.04
-		"args": { "VARIANT": "debian-10" }
-	},
-	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+    "name": "C++",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": { "VARIANT": "debian-10" }
+    },
+    "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
+    // Set *default* container specific settings.json values on container create.
+    "settings": { 
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "extensions.ignoreRecommendations": true,
+        "workbench.colorTheme": "Default Dark+",
+        "workbench.tree.indent": 24,
+        "explorer.confirmDelete": false,
+        "editor.minimap.enabled": false,
+        "editor.tabSize": 2,
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-	    "llvm-vs-code-extensions.vscode-clangd",
-	    "davidschuldenfrei.gtest-adapter",
-	    "webfreak.debug"
-	],
+        "C_Cpp.errorSquiggles": "Disabled",
+        "C_Cpp.intelliSenseEngine": "Disabled",
+        "clangd.path": "/usr/bin/clangd-12",
+        "clangd.onConfigChanged": "restart",
+        "clangd.arguments": [
+            "--query-driver=/usr/bin/*",
+            "--background-index",
+            "--compile-commands-dir=build"
+        ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+        "testMate.cpp.log.logSentry": "disable_3",
+        "testMate.cpp.debug.configTemplate": {
+            "type": "cppdbg",
+            "program": "${exec}",
+            "args": "${argsArray}",
+            "cwd": "${cwd}",
+            "sourceFileMap":"${sourceFileMapObj}",
+            "setupCommands": [{"text": "-enable-pretty-printing"}]
+        },
+        "testMate.cpp.test.advancedExecutables": [{
+            "pattern": "build/**/*-tests*",
+            "runTask": {"before": ["build"]}
+        }]
+    },
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": ".devcontainer/post-create.sh",
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "hbenl.vscode-test-explorer@2.19.6",
+        "llvm-vs-code-extensions.vscode-clangd@0.1.11",
+        "matepek.vscode-catch2-test-adapter@3.6.23",
+        "ms-vscode.cpptools@1.2.2"
+    ],
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "./build.sh Debug -nobuild",
+
+    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }

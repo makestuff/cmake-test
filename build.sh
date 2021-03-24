@@ -1,21 +1,28 @@
 #!/bin/sh
 
 CONFIG=Debug
-if [ $# -eq 1 ]; then
+if [ $# -ge 1 ]; then
   CONFIG=$1
 fi
 
+# Maybe configure
 if [ ! -e build ]; then
+  git submodule update --init --recursive
   mkdir build
   cd build
   cmake \
     -DCMAKE_BUILD_TYPE=${CONFIG} \
     -DBUILD_TESTING=1 \
     -DCMAKE_VERBOSE_MAKEFILE=0 \
-    -DCMAKE_INSTALL_PREFIX=../install \
-    -DCMAKE_INSTALL_RPATH=\$ORIGIN \
+    -DCMAKE_INSTALL_PREFIX=/usr/local \
+    -DCMAKE_INSTALL_RPATH=\$ORIGIN/../lib \
     -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
     ..
   cd ..
 fi
-cmake --build build --target install
+
+# Maybe build
+if [ $# -lt 2 ] || [ $2 != "-nobuild" ]; then
+  cmake --build build
+  echo 'You can install with "sudo cmake --build build --target install"'
+fi

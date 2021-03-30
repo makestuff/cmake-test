@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/vscode/devcontainers/cpp:dev-buster
-RUN echo "deb http://apt.llvm.org/buster/ llvm-toolchain-buster-12 main"     >> /etc/apt/sources.list
+RUN echo "deb     http://apt.llvm.org/buster/ llvm-toolchain-buster-12 main" >> /etc/apt/sources.list
 RUN echo "deb-src http://apt.llvm.org/buster/ llvm-toolchain-buster-12 main" >> /etc/apt/sources.list
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 RUN apt-get update
